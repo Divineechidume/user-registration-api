@@ -3,12 +3,15 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "env-cmd -f ./.env nodemon src/app.js"
+    "start": "env-cmd -f ./.env nodemon src/app.js",
+    "server": "node-env-run server --exec nodemon",
+    "dev": "run-p server start"
   },
   "license": "MIT",
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
+    "bootstrap": "^4.5.0",
     "cookie-parser": "~1.4.4",
     "ejs": "~2.6.1",
     "express": "^4.17.1",
@@ -16,6 +19,9 @@
     "jsonwebtoken": "^8.5.1",
     "mongodb": "^3.5.9",
     "mongoose": "^5.9.20",
+    "next": "^9.4.4",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
     "validator": "^13.1.1"
   },
   "devDependencies": {
