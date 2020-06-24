@@ -1,12 +1,19 @@
 const express = require('express')
 const User = require('../models/User')
 const auth = require('../middleware/auth')
+var bodyParser = require('body-parser')
+
 
 const router = express.Router()
 
-/*GET users page. */
-router.get('/users', function(req, res, next) {
+/*GET users login page. */
+router.get('/users/login', function(req, res) {
   res.render('login', { title: 'Express' });
+});
+
+/*GET users  page. */
+router.get('/users', function(req, res) {
+  res.render('home', { title: 'Express' });
 });
 
 router.post('/users', async (req, res) => {
@@ -23,7 +30,7 @@ router.post('/users', async (req, res) => {
 
 router.post('/users/login', async(req, res) => {
     //Login a registered user
-    try {
+    try {      
         const { email, password } = req.body
         const user = await User.findByCredentials(email, password)
         if (!user) {
